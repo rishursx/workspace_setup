@@ -1,3 +1,3 @@
 g++ host_run.cpp -o run
-./run < in.txt > out.txt
+./run < IO/in.txt > IO/out.txt
 rm run
