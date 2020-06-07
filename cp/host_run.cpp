@@ -19,47 +19,7 @@ typedef long double ld;
 
 int main() {
     std::ios::sync_with_stdio(false);
-    Test {
-        ll n;
-        cin >> n;
-        ll arr[n];
-        for(ll &i: arr) cin >> i;
-
-        ll five = 0, ten = 0;
-        bool flag = true;
-        LP(i, n)    {
-            if(arr[i] == 5) {
-                five ++;
-            }
-            else if(arr[i] == 10)   {
-                if(five >= 1)   {
-                    five--, ten++;
-                }
-                else {
-                    flag = false;
-                    break;
-                }
-            }
-            else {
-                if(ten >= 1)    {
-                    ten--;
-                }
-                else if(five >= 2)  {
-                    five-=2;
-                }
-                else {
-                    flag = false;
-                    break;
-                }
-            }
-        }
-        if(flag)    {
-            cout << "YES" << enl;
-        }
-        else {
-            cout << "NO"  << enl;
-        }
-    }
+    Test {}
 
     return 0;
 }

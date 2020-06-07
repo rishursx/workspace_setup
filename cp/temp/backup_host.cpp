@@ -20,18 +20,45 @@ typedef long double ld;
 int main() {
     std::ios::sync_with_stdio(false);
     Test {
-        int n, k;
-        cin >> n >> k;
+        ll n;
+        cin >> n;
+        ll arr[n];
+        for(ll &i: arr) cin >> i;
 
-        int loss = 0, p;
-
-        while(n--)  {
-            cin >> p;
-            loss += (p-k > 0)?(p-k):0;
+        ll five = 0, ten = 0;
+        bool flag = true;
+        LP(i, n)    {
+            if(arr[i] == 5) {
+                five ++;
+            }
+            else if(arr[i] == 10)   {
+                if(five >= 1)   {
+                    five--, ten++;
+                }
+                else {
+                    flag = false;
+                    break;
+                }
+            }
+            else {
+                if(ten >= 1)    {
+                    ten--;
+                }
+                else if(five >= 2)  {
+                    five-=2;
+                }
+                else {
+                    flag = false;
+                    break;
+                }
+            }
         }
-
-        cout << loss << enl;
-
+        if(flag)    {
+            cout << "YES" << enl;
+        }
+        else {
+            cout << "NO"  << enl;
+        }
     }
 
     return 0;
